@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OplataTruda"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Сотрудники" Height="600" Width="800">
+    <Grid Background="YellowGreen">
         
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Grid.Column="1" Background="White"/>
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Выберите сотрудника для расчета з/п:" Margin="5" Foreground="Green" FontSize="20"/>
+            <DataGrid x:Name="DG" Height="300" Width="575" SelectedCellsChanged="DG_SelectedCellsChanged" CanUserAddRows="False" AutoGenerateColumns="False">
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}" />
+                    <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Дата рождения" Binding="{Binding Birth,StringFormat=d}"/>
+                    <DataGridTextColumn Header="Стаж (лет)" Binding="{Binding Experience}"/>
+                    <DataGridTextColumn Header="Должность" Binding="{Binding Post}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Content="Расчет" Width="188" Click="Button_Click" Name="BtnNext" Background="Green"/>
+        </StackPanel>
     </Grid>
 </Window>

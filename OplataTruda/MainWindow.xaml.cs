@@ -23,6 +23,21 @@ namespace OplataTruda
         public MainWindow()
         {
             InitializeComponent();
+            DG.ItemsSource = SotrudnikiEntities1.GetContext().Sotrudnik.ToList();
+            BtnNext.IsEnabled = false;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DG_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (DG.SelectedItems.Count == 1)
+                BtnNext.IsEnabled = true;
+            else
+                BtnNext.IsEnabled = false;
         }
     }
 }
