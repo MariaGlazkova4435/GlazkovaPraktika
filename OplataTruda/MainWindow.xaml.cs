@@ -29,7 +29,8 @@ namespace OplataTruda
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            var item = DG.SelectedItem as Sotrudnik;
+            
         }
 
         private void DG_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
