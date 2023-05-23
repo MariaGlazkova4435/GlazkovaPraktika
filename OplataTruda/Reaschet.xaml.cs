@@ -19,12 +19,52 @@ namespace OplataTruda
     /// </summary>
     public partial class Reaschet : Window
     {
-        public Reaschet()
+        public Reaschet(int idSotr, string f, string n, string p)
         {
             InitializeComponent();
+            id = idSotr;
+            TbName.Text = $"{f} {n} - {p}";
+        }
+        int id;
+        private void Rasch(object sender, RoutedEventArgs e)
+        { 
+            double Rezult = 0;
+            if (f(Okl.Text) && f(PlanDays.Text) && f(FactDays.Text))
+            {
+                Rezult = Math.Round(Convert.ToDouble(Okl.Text) / Convert.ToDouble(PlanDays.Text) * Convert.ToDouble(FactDays.Text),2);
+                Rez.Text = $"Выплата = {Rezult}";
+            }
+            else
+                MessageBox.Show("Введите значения во все поля", "Ошибка получения данных");
+
         }
 
-        private void Rasch(object sender, RoutedEventArgs e)
+        public bool f(string a)
+        {
+            if (!String.IsNullOrWhiteSpace(a))
+                return true;
+            else
+                return false;
+        }
+
+        private void Vnos(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Rasch2(object sender, RoutedEventArgs e)
+        {
+            double Rezult = 0;
+            if (f(Ch.Text) && f(Stavka.Text))
+            {
+                Rezult = Math.Round(Convert.ToDouble(Ch.Text) * Convert.ToDouble(Stavka.Text), 2);
+                Rez1.Text = $"Выплата = {Rezult}";
+            }
+            else
+                MessageBox.Show("Введите значения во все поля", "Ошибка получения данных");
+        }
+
+        private void Vnos2(object sender, RoutedEventArgs e)
         {
 
         }

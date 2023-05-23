@@ -21,3 +21,5 @@ E:\практика\OplataTruda\OplataTruda\obj\Debug\OplataTruda.csproj.CoreCom
 E:\практика\OplataTruda\OplataTruda\obj\Debug\OplataTruda.csproj.CopyComplete
 E:\практика\OplataTruda\OplataTruda\obj\Debug\OplataTruda.exe
 E:\практика\OplataTruda\OplataTruda\obj\Debug\OplataTruda.pdb
+E:\практика\OplataTruda\OplataTruda\obj\Debug\Reaschet.g.cs
+E:\практика\OplataTruda\OplataTruda\obj\Debug\Reaschet.baml

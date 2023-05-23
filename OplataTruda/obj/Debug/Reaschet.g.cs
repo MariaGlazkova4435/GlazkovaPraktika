@@ -41,7 +41,7 @@ namespace OplataTruda {
     public partial class Reaschet : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
         
-        #line 24 "..\..\Reaschet.xaml"
+        #line 21 "..\..\Reaschet.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock TbName;
         
@@ -49,7 +49,7 @@ namespace OplataTruda {
         #line hidden
         
         
-        #line 25 "..\..\Reaschet.xaml"
+        #line 22 "..\..\Reaschet.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.StackPanel Oklad;
         
@@ -57,7 +57,7 @@ namespace OplataTruda {
         #line hidden
         
         
-        #line 27 "..\..\Reaschet.xaml"
+        #line 24 "..\..\Reaschet.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox Okl;
         
@@ -65,7 +65,7 @@ namespace OplataTruda {
         #line hidden
         
         
-        #line 29 "..\..\Reaschet.xaml"
+        #line 26 "..\..\Reaschet.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox PlanDays;
         
@@ -73,7 +73,7 @@ namespace OplataTruda {
         #line hidden
         
         
-        #line 31 "..\..\Reaschet.xaml"
+        #line 28 "..\..\Reaschet.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox FactDays;
         
@@ -81,7 +81,7 @@ namespace OplataTruda {
         #line hidden
         
         
-        #line 33 "..\..\Reaschet.xaml"
+        #line 30 "..\..\Reaschet.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock Rez;
         
@@ -89,7 +89,7 @@ namespace OplataTruda {
         #line hidden
         
         
-        #line 36 "..\..\Reaschet.xaml"
+        #line 33 "..\..\Reaschet.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.StackPanel Chas;
         
@@ -97,7 +97,7 @@ namespace OplataTruda {
         #line hidden
         
         
-        #line 38 "..\..\Reaschet.xaml"
+        #line 35 "..\..\Reaschet.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox Ch;
         
@@ -105,7 +105,7 @@ namespace OplataTruda {
         #line hidden
         
         
-        #line 40 "..\..\Reaschet.xaml"
+        #line 37 "..\..\Reaschet.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox Stavka;
         
@@ -113,7 +113,7 @@ namespace OplataTruda {
         #line hidden
         
         
-        #line 42 "..\..\Reaschet.xaml"
+        #line 39 "..\..\Reaschet.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock Rez1;
         
@@ -167,7 +167,7 @@ namespace OplataTruda {
             return;
             case 6:
             
-            #line 32 "..\..\Reaschet.xaml"
+            #line 29 "..\..\Reaschet.xaml"
             ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Rasch);
             
             #line default
@@ -178,7 +178,7 @@ namespace OplataTruda {
             return;
             case 8:
             
-            #line 34 "..\..\Reaschet.xaml"
+            #line 31 "..\..\Reaschet.xaml"
             ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Vnos);
             
             #line default
@@ -195,7 +195,7 @@ namespace OplataTruda {
             return;
             case 12:
             
-            #line 41 "..\..\Reaschet.xaml"
+            #line 38 "..\..\Reaschet.xaml"
             ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Rasch2);
             
             #line default
@@ -206,7 +206,7 @@ namespace OplataTruda {
             return;
             case 14:
             
-            #line 43 "..\..\Reaschet.xaml"
+            #line 40 "..\..\Reaschet.xaml"
             ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Vnos2);
             
             #line default

@@ -19,7 +19,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="1" Grid.Column="1" Background="White"/>
-        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Name="St1"> 
             <TextBlock Text="Выберите сотрудника для расчета з/п:" Margin="5" Foreground="Green" FontSize="20"/>
             <DataGrid x:Name="DG" Height="300" Width="575" SelectedCellsChanged="DG_SelectedCellsChanged" CanUserAddRows="False" AutoGenerateColumns="False">
                 <DataGrid.Columns >
@@ -31,6 +31,11 @@
                 </DataGrid.Columns>
             </DataGrid>
             <Button Content="Расчет" Width="188" Click="Button_Click" Name="BtnNext" Background="Green"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Visibility="Hidden" Name="St2">
+            <Button Content="По окладу" Height="76" Width="260" Click="Oklad"/>
+            <Button Content="По отработанным часам" Height="76" Width="260" Click="Chas"/>
+            <Button Content="Назад" Click="Back" Width="115" Background="LightGreen" Foreground="Green" BorderBrush="Green" BorderThickness="1"/>
         </StackPanel>
     </Grid>
 </Window>
