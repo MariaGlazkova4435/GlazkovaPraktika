@@ -16,9 +16,12 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="1*"/>
+
         </Grid.RowDefinitions>
-        <Grid Grid.Row="1" Grid.Column="1" Background="White"/>
-        <TextBlock Name="TbName" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="5" FontSize="20" TextAlignment="Center" Foreground="DarkGreen" FontWeight="Bold"/>
+        <Border Grid.Column="1" Grid.Row="1" BorderThickness="10" BorderBrush="Green">
+            <Grid Grid.Row="1" Grid.Column="1" Background="White"/>
+        </Border>
+        <TextBlock Name="TbName" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="15" FontSize="20" TextAlignment="Center" Foreground="DarkGreen" FontWeight="Bold"/>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Name="Oklad" Visibility="Visible">
             <TextBlock Text="Введите оклад (руб.):" Margin="5" Foreground="Green" FontSize="20"/>
             <TextBox Name="Okl" Width="250" HorizontalAlignment="Left"/>
@@ -39,5 +42,6 @@
             <TextBlock Name="Rez1" Margin="5" Foreground="Green" FontSize="20" TextAlignment="Center"/>
             <Button Content="Внести выплату в базу" Width="250" Click="Vnos2"/>
         </StackPanel>
+        <Button Click="Back" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" BorderBrush="Green" Content="Назад" Height="50" Width="100"/>
     </Grid>
 </Window>

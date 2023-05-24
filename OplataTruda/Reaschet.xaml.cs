@@ -25,10 +25,9 @@ namespace OplataTruda
             id = idSotr;
             TbName.Text = $"{f} {n} - {p}";
         }
-        int id;
+        int id; double Rezult = 0;
         private void Rasch(object sender, RoutedEventArgs e)
         { 
-            double Rezult = 0;
             if (f(Okl.Text) && f(PlanDays.Text) && f(FactDays.Text))
             {
                 Rezult = Math.Round(Convert.ToDouble(Okl.Text) / Convert.ToDouble(PlanDays.Text) * Convert.ToDouble(FactDays.Text),2);
@@ -49,12 +48,21 @@ namespace OplataTruda
 
         private void Vnos(object sender, RoutedEventArgs e)
         {
-
+            using (var context = new MyDbContext())
+            {
+                var w = new List<PaymentHistory>()
+                    {
+                        new PaymentHistory(){ idSotr = id, Summa = Rezult, Date = DateTime.Now }
+                    };
+                context.P.AddRange(w);
+                context.SaveChanges();
+                MessageBox.Show("Выплата добавлена в историю выплат", "Окно расчета");
+            }
         }
 
         private void Rasch2(object sender, RoutedEventArgs e)
         {
-            double Rezult = 0;
+
             if (f(Ch.Text) && f(Stavka.Text))
             {
                 Rezult = Math.Round(Convert.ToDouble(Ch.Text) * Convert.ToDouble(Stavka.Text), 2);
@@ -66,7 +74,24 @@ namespace OplataTruda
 
         private void Vnos2(object sender, RoutedEventArgs e)
         {
-
+            using (var context = new MyDbContext())
+            {
+                var w = new List<PaymentHistory>()
+                    {
+                        new PaymentHistory(){ idSotr = id, Summa = Rezult, Date = DateTime.Now }
+                    };
+                context.P.AddRange(w);
+                context.SaveChanges();
+                MessageBox.Show("Выплата добавлена в историю выплат", "Окно расчета");
+            }
+        }
+        MainWindow mainWindow = new MainWindow();
+        private void Back(object sender, RoutedEventArgs e)
+        {
+            mainWindow.Show();
+            mainWindow.St2.Visibility = Visibility.Hidden;
+            mainWindow.St1.Visibility = Visibility.Visible;
+            Close();
         }
     }
 }

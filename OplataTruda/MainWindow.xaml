@@ -18,7 +18,9 @@
             <RowDefinition Height="7*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="1" Grid.Column="1" Background="White"/>
+        <Border Grid.Column="1" Grid.Row="1" BorderThickness="10" BorderBrush="Yellow">
+            <Grid Grid.Row="1" Grid.Column="1" Background="White"/>
+        </Border>
         <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Name="St1"> 
             <TextBlock Text="Выберите сотрудника для расчета з/п:" Margin="5" Foreground="Green" FontSize="20"/>
             <DataGrid x:Name="DG" Height="300" Width="575" SelectedCellsChanged="DG_SelectedCellsChanged" CanUserAddRows="False" AutoGenerateColumns="False">

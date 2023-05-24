@@ -58,6 +58,7 @@ namespace OplataTruda
             reaschet.Show();
             reaschet.Oklad.Visibility = Visibility.Visible;
             reaschet.Chas.Visibility = Visibility.Hidden;
+            Close();
         }
 
         private void Chas(object sender, RoutedEventArgs e)
@@ -65,6 +66,7 @@ namespace OplataTruda
             reaschet.Show();
             reaschet.Oklad.Visibility = Visibility.Hidden;
             reaschet.Chas.Visibility = Visibility.Visible;
+            Close();
         }
     }
     
