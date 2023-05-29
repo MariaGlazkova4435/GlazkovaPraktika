@@ -32,7 +32,11 @@
                     <DataGridTextColumn Header="Должность" Binding="{Binding Post}"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <Button Content="Расчет" Width="188" Click="Button_Click" Name="BtnNext" Background="Green"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Button Content="Расчет зарплаты" Width="200" Click="Button_Click" Name="BtnNext" Background="Yellow" Foreground="DarkSlateGray"/>
+                <Button Content="Уволить" Width="110" Background="IndianRed" Click="Uvol" Name="Uv"/>
+                <Button Content="Добавить сотрудника" Width="240" Name="Add" Click="AddSotr"/>
+            </StackPanel>
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Visibility="Hidden" Name="St2">
             <Button Content="По окладу" Height="76" Width="260" Click="Oklad"/>

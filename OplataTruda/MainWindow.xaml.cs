@@ -53,6 +53,23 @@ namespace OplataTruda
             St1.Visibility = Visibility.Visible;
         }
 
+        private void Uvol(object sender, RoutedEventArgs e)
+        {
+            var productsForRemoving = DG.SelectedItems.Cast<Sotrudnik>().ToList();
+            if (MessageBox.Show($"Вы точно хотите удалить следующих {productsForRemoving.Count()} сотрудиков?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                SotrudnikiEntities1.GetContext().Sotrudnik.RemoveRange(productsForRemoving);
+                SotrudnikiEntities1.GetContext().SaveChanges();
+                MessageBox.Show("Данные удалены", "Главное окно", MessageBoxButton.OK, MessageBoxImage.Information);
+                DG.ItemsSource = SotrudnikiEntities1.GetContext().Sotrudnik.ToList();
+            }
+        }
+
+        private void AddSotr(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void Oklad(object sender, RoutedEventArgs e)
         {
             reaschet.Show();

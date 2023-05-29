@@ -34,7 +34,7 @@ namespace OplataTruda
                 Rez.Text = $"Выплата = {Rezult}";
             }
             else
-                MessageBox.Show("Введите значения во все поля", "Ошибка получения данных");
+                MessageBox.Show("Введите значения во все поля", "Ошибка получения данных", MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
         }
 
@@ -56,7 +56,7 @@ namespace OplataTruda
                     };
                 context.P.AddRange(w);
                 context.SaveChanges();
-                MessageBox.Show("Выплата добавлена в историю выплат", "Окно расчета");
+                MessageBox.Show("Выплата добавлена в историю выплат", "Окно расчета", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -69,7 +69,7 @@ namespace OplataTruda
                 Rez1.Text = $"Выплата = {Rezult}";
             }
             else
-                MessageBox.Show("Введите значения во все поля", "Ошибка получения данных");
+                MessageBox.Show("Введите значения во все поля", "Ошибка получения данных", MessageBoxButton.OK, MessageBoxImage.Exclamation);
         }
 
         private void Vnos2(object sender, RoutedEventArgs e)
@@ -82,7 +82,7 @@ namespace OplataTruda
                     };
                 context.P.AddRange(w);
                 context.SaveChanges();
-                MessageBox.Show("Выплата добавлена в историю выплат", "Окно расчета");
+                MessageBox.Show("Выплата добавлена в историю выплат", "Окно расчета", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
         MainWindow mainWindow = new MainWindow();
