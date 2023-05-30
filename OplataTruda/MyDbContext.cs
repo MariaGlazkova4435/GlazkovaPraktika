@@ -13,6 +13,8 @@ namespace OplataTruda
         { }
         public DbSet<Sotrudnik> S { get; set; }
         public DbSet<PaymentHistory> P { get; set; }
+        public DbSet<SotrHistory> SH { get; set; }
+        public DbSet<TypeAction> T { get; set; }
     }
 
 }

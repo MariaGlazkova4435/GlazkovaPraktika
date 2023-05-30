@@ -4,11 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f73efee1bf124f1d889ed1fbe626437f" Name="Diagram1">
-        <EntityTypeShape EntityType="SotrudnikiModel.PaymentHistory" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SotrudnikiModel.Sotrudnik" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="SotrudnikiModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+      <Diagram DiagramId="b7c0c6b7c444484987c74619a49a1629" Name="Diagram1">
+        <EntityTypeShape EntityType="SotrudnikiModel.PaymentHistory" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SotrudnikiModel.SotrHistory" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SotrudnikiModel.Sotrudnik" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SotrudnikiModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SotrudnikiModel.TypeAction" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
         <AssociationConnector Association="SotrudnikiModel.FK_PaymentHistory_Sotrudnik" ManuallyRouted="false" />
+        <AssociationConnector Association="SotrudnikiModel.FK_SotrHistory_TypeAction" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -23,3 +23,5 @@ E:\практика\OplataTruda\OplataTruda\obj\Debug\OplataTruda.exe
 E:\практика\OplataTruda\OplataTruda\obj\Debug\OplataTruda.pdb
 E:\практика\OplataTruda\OplataTruda\obj\Debug\Reaschet.g.cs
 E:\практика\OplataTruda\OplataTruda\obj\Debug\Reaschet.baml
+E:\практика\OplataTruda\OplataTruda\obj\Debug\Descript.g.cs
+E:\практика\OplataTruda\OplataTruda\obj\Debug\Descript.baml

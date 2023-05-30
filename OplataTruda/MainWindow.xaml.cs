@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.VisualBasic;
 
 namespace OplataTruda
 {
@@ -25,7 +26,7 @@ namespace OplataTruda
             InitializeComponent();
             DG.ItemsSource = SotrudnikiEntities1.GetContext().Sotrudnik.ToList();
             BtnNext.IsEnabled = false;
-           
+            Uv.IsEnabled = false;
         }
         Reaschet reaschet;
         int id; string fam, ps, nam;
@@ -42,9 +43,9 @@ namespace OplataTruda
         private void DG_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
             if (DG.SelectedItems.Count == 1)
-                BtnNext.IsEnabled = true;
+            { BtnNext.IsEnabled = true; Uv.IsEnabled = true; }
             else
-                BtnNext.IsEnabled = false;
+            { BtnNext.IsEnabled = false; Uv.IsEnabled = false; }
         }
 
         private void Back(object sender, RoutedEventArgs e)
@@ -55,14 +56,11 @@ namespace OplataTruda
 
         private void Uvol(object sender, RoutedEventArgs e)
         {
-            var productsForRemoving = DG.SelectedItems.Cast<Sotrudnik>().ToList();
-            if (MessageBox.Show($"Вы точно хотите удалить следующих {productsForRemoving.Count()} сотрудиков?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-            {
-                SotrudnikiEntities1.GetContext().Sotrudnik.RemoveRange(productsForRemoving);
-                SotrudnikiEntities1.GetContext().SaveChanges();
-                MessageBox.Show("Данные удалены", "Главное окно", MessageBoxButton.OK, MessageBoxImage.Information);
-                DG.ItemsSource = SotrudnikiEntities1.GetContext().Sotrudnik.ToList();
-            }
+            var sotr = DG.SelectedItem as Sotrudnik;
+            int i = sotr.idSotr;
+            Descript descript = new Descript(i, sotr.Surname, sotr.Name);
+            descript.Show();
+            Close();
         }
 
         private void AddSotr(object sender, RoutedEventArgs e)

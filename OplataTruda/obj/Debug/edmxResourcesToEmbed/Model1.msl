@@ -11,6 +11,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="SotrHistory">
+      <EntityTypeMapping TypeName="SotrudnikiModel.SotrHistory">
+        <MappingFragment StoreEntitySet="SotrHistory">
+          <ScalarProperty Name="idSotrHistory" ColumnName="idSotrHistory" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="idTypeAct" ColumnName="idTypeAct" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Sotrudnik">
       <EntityTypeMapping TypeName="SotrudnikiModel.Sotrudnik">
         <MappingFragment StoreEntitySet="Sotrudnik">
@@ -31,6 +42,14 @@
           <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeAction">
+      <EntityTypeMapping TypeName="SotrudnikiModel.TypeAction">
+        <MappingFragment StoreEntitySet="TypeAction">
+          <ScalarProperty Name="idTypeAction" ColumnName="idTypeAction" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -14,6 +14,16 @@
           <Property Name="idSotr" Type="int" />
           <Property Name="Summa" Type="float" />
         </EntityType>
+        <EntityType Name="SotrHistory">
+          <Key>
+            <PropertyRef Name="idSotrHistory" />
+          </Key>
+          <Property Name="idSotrHistory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="idTypeAct" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="Sotrudnik">
           <Key>
             <PropertyRef Name="idSotr" />
@@ -35,6 +45,13 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="TypeAction">
+          <Key>
+            <PropertyRef Name="idTypeAction" />
+          </Key>
+          <Property Name="idTypeAction" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+        </EntityType>
         <Association Name="FK_PaymentHistory_Sotrudnik">
           <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
           <End Role="PaymentHistory" Type="Self.PaymentHistory" Multiplicity="*" />
@@ -47,13 +64,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_SotrHistory_TypeAction">
+          <End Role="TypeAction" Type="Self.TypeAction" Multiplicity="1" />
+          <End Role="SotrHistory" Type="Self.SotrHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeAction">
+              <PropertyRef Name="idTypeAction" />
+            </Principal>
+            <Dependent Role="SotrHistory">
+              <PropertyRef Name="idTypeAct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище SotrudnikiModelContainer">
           <EntitySet Name="PaymentHistory" EntityType="Self.PaymentHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SotrHistory" EntityType="Self.SotrHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sotrudnik" EntityType="Self.Sotrudnik" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeAction" EntityType="Self.TypeAction" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_PaymentHistory_Sotrudnik" Association="Self.FK_PaymentHistory_Sotrudnik">
             <End Role="Sotrudnik" EntitySet="Sotrudnik" />
             <End Role="PaymentHistory" EntitySet="PaymentHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SotrHistory_TypeAction" Association="Self.FK_SotrHistory_TypeAction">
+            <End Role="TypeAction" EntitySet="TypeAction" />
+            <End Role="SotrHistory" EntitySet="SotrHistory" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -70,6 +105,17 @@
           <Property Name="idSotr" Type="Int32" />
           <Property Name="Summa" Type="Double" />
           <NavigationProperty Name="Sotrudnik" Relationship="Self.FK_PaymentHistory_Sotrudnik" FromRole="PaymentHistory" ToRole="Sotrudnik" />
+        </EntityType>
+        <EntityType Name="SotrHistory">
+          <Key>
+            <PropertyRef Name="idSotrHistory" />
+          </Key>
+          <Property Name="idSotrHistory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="idTypeAct" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TypeAction" Relationship="Self.FK_SotrHistory_TypeAction" FromRole="SotrHistory" ToRole="TypeAction" />
         </EntityType>
         <EntityType Name="Sotrudnik">
           <Key>
@@ -93,6 +139,14 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <EntityType Name="TypeAction">
+          <Key>
+            <PropertyRef Name="idTypeAction" />
+          </Key>
+          <Property Name="idTypeAction" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SotrHistory" Relationship="Self.FK_SotrHistory_TypeAction" FromRole="TypeAction" ToRole="SotrHistory" />
+        </EntityType>
         <Association Name="FK_PaymentHistory_Sotrudnik">
           <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
           <End Role="PaymentHistory" Type="Self.PaymentHistory" Multiplicity="*" />
@@ -105,13 +159,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_SotrHistory_TypeAction">
+          <End Role="TypeAction" Type="Self.TypeAction" Multiplicity="1" />
+          <End Role="SotrHistory" Type="Self.SotrHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeAction">
+              <PropertyRef Name="idTypeAction" />
+            </Principal>
+            <Dependent Role="SotrHistory">
+              <PropertyRef Name="idTypeAct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="SotrudnikiEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="PaymentHistory" EntityType="Self.PaymentHistory" />
+          <EntitySet Name="SotrHistory" EntityType="Self.SotrHistory" />
           <EntitySet Name="Sotrudnik" EntityType="Self.Sotrudnik" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TypeAction" EntityType="Self.TypeAction" />
           <AssociationSet Name="FK_PaymentHistory_Sotrudnik" Association="Self.FK_PaymentHistory_Sotrudnik">
             <End Role="Sotrudnik" EntitySet="Sotrudnik" />
             <End Role="PaymentHistory" EntitySet="PaymentHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SotrHistory_TypeAction" Association="Self.FK_SotrHistory_TypeAction">
+            <End Role="TypeAction" EntitySet="TypeAction" />
+            <End Role="SotrHistory" EntitySet="SotrHistory" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -127,6 +199,17 @@
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="idSotr" ColumnName="idSotr" />
                 <ScalarProperty Name="Summa" ColumnName="Summa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SotrHistory">
+            <EntityTypeMapping TypeName="SotrudnikiModel.SotrHistory">
+              <MappingFragment StoreEntitySet="SotrHistory">
+                <ScalarProperty Name="idSotrHistory" ColumnName="idSotrHistory" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="idTypeAct" ColumnName="idTypeAct" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -150,6 +233,14 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeAction">
+            <EntityTypeMapping TypeName="SotrudnikiModel.TypeAction">
+              <MappingFragment StoreEntitySet="TypeAction">
+                <ScalarProperty Name="idTypeAction" ColumnName="idTypeAction" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

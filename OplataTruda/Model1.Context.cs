@@ -19,6 +19,11 @@ namespace OplataTruda
             : base("name=SotrudnikiEntities1")
         {
         }
+    
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
         private static SotrudnikiEntities1 _context;
         public static SotrudnikiEntities1 GetContext()
         {
@@ -26,13 +31,10 @@ namespace OplataTruda
                 _context = new SotrudnikiEntities1();
             return _context;
         }
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
-    
         public virtual DbSet<PaymentHistory> PaymentHistory { get; set; }
+        public virtual DbSet<SotrHistory> SotrHistory { get; set; }
         public virtual DbSet<Sotrudnik> Sotrudnik { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<TypeAction> TypeAction { get; set; }
     }
 }
