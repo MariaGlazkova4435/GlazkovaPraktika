@@ -63,10 +63,6 @@ namespace OplataTruda
             Close();
         }
 
-        private void AddSotr(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void Oklad(object sender, RoutedEventArgs e)
         {
@@ -83,6 +79,12 @@ namespace OplataTruda
             reaschet.Chas.Visibility = Visibility.Visible;
             Close();
         }
+        private void AddSotr(object sender, RoutedEventArgs e)
+        {
+            AddEdit addEdit = new AddEdit(null);
+            addEdit.Show();
+            Close();
+        }
+
     }
-    
 }

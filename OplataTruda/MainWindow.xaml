@@ -5,25 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OplataTruda"
         mc:Ignorable="d"
-        Title="Сотрудники" Height="600" Width="800">
+        Title="Сотрудники" Height="700" Width="900">
     <Grid Background="YellowGreen">
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="12*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="7*"/>
+            <RowDefinition Height="12*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Border Grid.Column="1" Grid.Row="1" BorderThickness="10" BorderBrush="Yellow">
             <Grid Grid.Row="1" Grid.Column="1" Background="White"/>
         </Border>
         <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Name="St1"> 
-            <TextBlock Text="Выберите сотрудника для расчета з/п:" Margin="5" Foreground="Green" FontSize="20"/>
-            <DataGrid x:Name="DG" Height="300" Width="575" SelectedCellsChanged="DG_SelectedCellsChanged" CanUserAddRows="False" AutoGenerateColumns="False">
+            <TextBlock Text="Выберите сотрудника для расчета з/п:" Foreground="Green" FontSize="20"/>
+            <DataGrid x:Name="DG" SelectedCellsChanged="DG_SelectedCellsChanged" CanUserAddRows="False" AutoGenerateColumns="False" Height="300">
                 <DataGrid.Columns >
                     <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}" />
                     <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>

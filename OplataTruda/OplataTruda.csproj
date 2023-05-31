@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddEdit.xaml.cs">
+      <DependentUpon>AddEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Descript.xaml.cs">
       <DependentUpon>Descript.xaml</DependentUpon>
     </Compile>
@@ -102,6 +105,10 @@
     <Compile Include="TypeAction.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Page Include="AddEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Descript.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

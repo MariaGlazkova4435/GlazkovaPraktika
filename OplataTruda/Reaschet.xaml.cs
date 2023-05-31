@@ -31,7 +31,7 @@ namespace OplataTruda
             if (f(Okl.Text) && f(PlanDays.Text) && f(FactDays.Text))
             {
                 Rezult = Math.Round(Convert.ToDouble(Okl.Text) / Convert.ToDouble(PlanDays.Text) * Convert.ToDouble(FactDays.Text),2);
-                Rez.Text = $"Выплата = {Rezult}";
+                Rez.Text = $"Выплата = {Rezult} руб.";
             }
             else
                 MessageBox.Show("Введите значения во все поля", "Ошибка получения данных", MessageBoxButton.OK, MessageBoxImage.Exclamation);
@@ -66,7 +66,7 @@ namespace OplataTruda
             if (f(Ch.Text) && f(Stavka.Text))
             {
                 Rezult = Math.Round(Convert.ToDouble(Ch.Text) * Convert.ToDouble(Stavka.Text), 2);
-                Rez1.Text = $"Выплата = {Rezult}";
+                Rez1.Text = $"Выплата = {Rezult} руб.";
             }
             else
                 MessageBox.Show("Введите значения во все поля", "Ошибка получения данных", MessageBoxButton.OK, MessageBoxImage.Exclamation);

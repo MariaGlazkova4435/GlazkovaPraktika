@@ -29,7 +29,7 @@ namespace OplataTruda
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var sotr = SotrudnikiEntities1.GetContext().Sotrudnik.Where(q => q.idSotr == idS);
-            if (MessageBox.Show($"Вы точно хотите удалить сотрудника?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (MessageBox.Show($"Вы точно хотите уволить сотрудника?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             { 
                 using (var context = new MyDbContext())
                 {
@@ -43,7 +43,7 @@ namespace OplataTruda
                 SotrudnikiEntities1.GetContext().Sotrudnik.RemoveRange(sotr);
                 SotrudnikiEntities1.GetContext().SaveChanges();
 
-                MessageBox.Show("Данные удалены", "Главное окно", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Сотрудник уволен", "Увольнение", MessageBoxButton.OK, MessageBoxImage.Information);
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
                 Close();
