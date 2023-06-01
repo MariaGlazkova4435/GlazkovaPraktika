@@ -23,7 +23,7 @@ namespace OplataTruda
         {
             InitializeComponent();
             if (selectedSotr != null)
-            { _currentSotr = selectedSotr; }
+            { _currentSotr = selectedSotr; cal.DisplayDate = _currentSotr.Birth.Value; }
 
             DataContext = _currentSotr;
             //CpVidProd.ItemsSource = ZooMagazinCopy2Entities.GetContext().TypeProducts.ToList();
@@ -62,20 +62,19 @@ namespace OplataTruda
                 }
                 MessageBox.Show("Сотрудник добавлен", "Окно редактора", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            //else
-            //{
-            //    SotrudnikiEntities1.GetContext().Sotrudnik.Add(_currentSotr);
-            //    using (var context = new MyDbContext())
-            //    {
-            //        var w = new List<SotrHistory>()
-            //        {
-            //            new SotrHistory(){ FullName = $"{_currentSotr.Surname} {_currentSotr.Name}", idTypeAct = 3, Description = Desc.Text, Date = DateTime.Now}
-            //        };
-            //        context.SH.AddRange(w);
-            //        context.SaveChanges();
-            //    }
-            //    MessageBox.Show("Данные о сотруднике отредактированы", "Окно редактора", MessageBoxButton.OK, MessageBoxImage.Information);
-            //}
+            else
+            {
+                using (var context = new MyDbContext())
+                {
+                    var w = new List<SotrHistory>()
+                    {
+                        new SotrHistory(){ FullName = $"{_currentSotr.Surname} {_currentSotr.Name}", idTypeAct = 3, Description = Desc.Text, Date = DateTime.Now}
+                    };
+                    context.SH.AddRange(w);
+                    context.SaveChanges();
+                }
+                MessageBox.Show("Данные о сотруднике отредактированы", "Окно редактора", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
             try
             {
                 SotrudnikiEntities1.GetContext().SaveChanges();

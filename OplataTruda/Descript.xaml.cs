@@ -40,6 +40,9 @@ namespace OplataTruda
                     context.SH.AddRange(w);
                     context.SaveChanges();
                 }
+                var productsForRemoving = SotrudnikiEntities1.GetContext().PaymentHistory.Where(x=> x.idSotr == idS).Cast<PaymentHistory>().ToList();
+                SotrudnikiEntities1.GetContext().PaymentHistory.RemoveRange(productsForRemoving);
+                SotrudnikiEntities1.GetContext().SaveChanges();
                 SotrudnikiEntities1.GetContext().Sotrudnik.RemoveRange(sotr);
                 SotrudnikiEntities1.GetContext().SaveChanges();
 

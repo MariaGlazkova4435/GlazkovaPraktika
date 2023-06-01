@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OplataTruda"
         mc:Ignorable="d"
-        Title="Сотрудники" Height="700" Width="900">
-    <Grid Background="YellowGreen">
+        Title="Сотрудники" Height="700" Width="900" WindowStartupLocation="CenterScreen">
+    <Grid Background="YellowGreen" >
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -33,9 +33,10 @@
                 </DataGrid.Columns>
             </DataGrid>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <Button Content="Расчет зарплаты" Width="200" Click="Button_Click" Name="BtnNext" Background="Yellow" Foreground="DarkSlateGray"/>
-                <Button Content="Уволить" Width="110" Background="IndianRed" Click="Uvol" Name="Uv"/>
-                <Button Content="Добавить сотрудника" Width="240" Name="Add" Click="AddSotr"/>
+                <Button Content="Расчет зарплаты" Width="170" Click="Button_Click" Name="BtnNext" Background="Yellow" Foreground="DarkSlateGray"/>
+                <Button Content="Уволить" Width="90" Background="IndianRed" Click="Uvol" Name="Uv"/>
+                <Button Content="Добавить сотрудника" Width="210" Name="Add" Click="AddSotr"/>
+                <Button Content="Редактировать" Name="Rd" Width="145" Click="Red" Background="Orange" />
             </StackPanel>
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Visibility="Hidden" Name="St2">

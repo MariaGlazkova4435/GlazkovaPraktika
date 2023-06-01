@@ -27,6 +27,7 @@ namespace OplataTruda
             DG.ItemsSource = SotrudnikiEntities1.GetContext().Sotrudnik.ToList();
             BtnNext.IsEnabled = false;
             Uv.IsEnabled = false;
+            Rd.IsEnabled = false;
         }
         Reaschet reaschet;
         int id; string fam, ps, nam;
@@ -43,9 +44,9 @@ namespace OplataTruda
         private void DG_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
             if (DG.SelectedItems.Count == 1)
-            { BtnNext.IsEnabled = true; Uv.IsEnabled = true; }
+            { BtnNext.IsEnabled = true; Uv.IsEnabled = true; Rd.IsEnabled = true; }
             else
-            { BtnNext.IsEnabled = false; Uv.IsEnabled = false; }
+            { BtnNext.IsEnabled = false; Uv.IsEnabled = false; Rd.IsEnabled = false; }
         }
 
         private void Back(object sender, RoutedEventArgs e)
@@ -69,6 +70,13 @@ namespace OplataTruda
             reaschet.Show();
             reaschet.Oklad.Visibility = Visibility.Visible;
             reaschet.Chas.Visibility = Visibility.Hidden;
+            Close();
+        }
+
+        private void Red(object sender, RoutedEventArgs e)
+        {
+            AddEdit addEdit = new AddEdit(DG.SelectedItem as Sotrudnik);
+            addEdit.Show();
             Close();
         }
 
