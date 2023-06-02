@@ -89,7 +89,7 @@
     <Compile Include="PaymentHistory.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Peredacha.cs" />
+    <Compile Include="Proverka.cs" />
     <Compile Include="Reaschet.xaml.cs">
       <DependentUpon>Reaschet.xaml</DependentUpon>
     </Compile>

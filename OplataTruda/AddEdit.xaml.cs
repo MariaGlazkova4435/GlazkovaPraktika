@@ -19,6 +19,7 @@ namespace OplataTruda
     /// </summary>
     public partial class AddEdit : Window
     {
+        Proverka proverka = new Proverka();
         public AddEdit(Sotrudnik selectedSotr)
         {
             InitializeComponent();
@@ -34,13 +35,13 @@ namespace OplataTruda
         private void Save(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
-            if (string.IsNullOrWhiteSpace(_currentSotr.Name))
+            if (proverka.NullStr(_currentSotr.Name))
                 errors.AppendLine("Не введено имя сотрудника\nУкажите имя");
-            if (string.IsNullOrWhiteSpace(_currentSotr.Surname))
+            if (proverka.NullStr(_currentSotr.Surname))
                 errors.AppendLine("Не введена фамилия сотрудника\nУкажите фамилию");
-            if (string.IsNullOrWhiteSpace(_currentSotr.Post))
+            if (proverka.NullStr(_currentSotr.Post))
                 errors.AppendLine("Не введена должность сотрудника\nУкажите должность");
-            if (string.IsNullOrWhiteSpace(_currentSotr.Birth.ToString()))
+            if (proverka.NullStr(_currentSotr.Birth.ToString()))
                 errors.AppendLine("Не выбрана дата рождения сотрудника\nУкажите дату рождения");
             if (errors.Length > 0)
             {

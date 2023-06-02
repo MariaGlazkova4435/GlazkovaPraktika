@@ -19,6 +19,7 @@ namespace OplataTruda
     /// </summary>
     public partial class Reaschet : Window
     {
+        Proverka proverka = new Proverka();
         public Reaschet(int idSotr, string f, string n, string p)
         {
             InitializeComponent();
@@ -28,22 +29,16 @@ namespace OplataTruda
         int id; double Rezult = 0;
         private void Rasch(object sender, RoutedEventArgs e)
         { 
-            if (f(Okl.Text) && f(PlanDays.Text) && f(FactDays.Text))
+            if (!proverka.NullStr(Okl.Text) && !proverka.NullStr(PlanDays.Text) && !proverka.NullStr(FactDays.Text))
             {
-                Rezult = Math.Round(Convert.ToDouble(Okl.Text) / Convert.ToDouble(PlanDays.Text) * Convert.ToDouble(FactDays.Text),2);
+                Rezult = Math.Round(proverka.SchetPoOkladu(Okl.Text, PlanDays.Text, FactDays.Text),2);
+                if (Rezult == 0)
+                    MessageBox.Show("Данные введены некорректно", "Ошибка получения данных", MessageBoxButton.OK, MessageBoxImage.Warning);
                 Rez.Text = $"Выплата = {Rezult} руб.";
             }
             else
                 MessageBox.Show("Введите значения во все поля", "Ошибка получения данных", MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
-        }
-
-        public bool f(string a)
-        {
-            if (!String.IsNullOrWhiteSpace(a))
-                return true;
-            else
-                return false;
         }
 
         private void Vnos(object sender, RoutedEventArgs e)
@@ -58,14 +53,17 @@ namespace OplataTruda
                 context.SaveChanges();
                 MessageBox.Show("Выплата добавлена в историю выплат", "Окно расчета", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+            Okl.Text = ""; PlanDays.Text = ""; FactDays.Text = ""; Rez.Text = "";
         }
 
         private void Rasch2(object sender, RoutedEventArgs e)
         {
 
-            if (f(Ch.Text) && f(Stavka.Text))
+            if (!proverka.NullStr(Ch.Text) && !proverka.NullStr(Stavka.Text))
             {
-                Rezult = Math.Round(Convert.ToDouble(Ch.Text) * Convert.ToDouble(Stavka.Text), 2);
+                Rezult = Math.Round(proverka.SchetPoOChasam(Stavka.Text, Ch.Text), 2);
+                if (Rezult == 0)
+                    MessageBox.Show("Данные введены некорректно", "Ошибка получения данных", MessageBoxButton.OK, MessageBoxImage.Warning);
                 Rez1.Text = $"Выплата = {Rezult} руб.";
             }
             else
@@ -84,10 +82,12 @@ namespace OplataTruda
                 context.SaveChanges();
                 MessageBox.Show("Выплата добавлена в историю выплат", "Окно расчета", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+            Ch.Text = ""; Stavka.Text = ""; Rez1.Text = "";
         }
         MainWindow mainWindow = new MainWindow();
         private void Back(object sender, RoutedEventArgs e)
         {
+
             mainWindow.Show();
             mainWindow.St2.Visibility = Visibility.Hidden;
             mainWindow.St1.Visibility = Visibility.Visible;
